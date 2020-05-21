@@ -1,0 +1,182 @@
+$colorOne: #65DEF1;
+$colorTwo: #A8DCD1;
+$colorThree: #DCE2C8;
+$colorFour: #F96900;
+$colorFive: #F17F29;
+
+$activedColor: rgb(230, 183, 31);
+$font: 'Open Sans Condensed', sans-serif;
+
+html, body{
+    //overflow: hidden;
+    font-family: $font;
+    height: 100%; 
+    min-height: 100%;
+    width: 100%;
+    min-width: 100%;
+    margin: 0px;
+} 
+
+.navbar{
+    background-color: $colorFour;
+    height: 100%;
+    width: 2.5%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow: hidden;
+    transition: 0.4s;
+    font-family: $font;
+
+    //OPEN NAV STYLING
+    //styling for when cursor hovers over navbar (when navbar is extended)
+    &:hover{
+        width: 15%;
+        transition: width .41s;
+
+        .open_nav_list_container{
+            text-align: center;
+            display: block;
+            height: 100%;
+        }
+
+        #profile_picture{
+            border-radius: 50%;     
+            width: 100%;
+            height: auto;
+            max-width: 60%;
+            max-height: 60%; 
+            border: 3px groove $colorFive(218, 213, 213);
+        } 
+
+        .profile_picture_container{
+            margin-top: 4rem;
+        }
+
+        .nav_links_container{
+            margin-top: 1.5rem;
+        }
+
+        .nav_icons_container{
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .nav_link{  
+            color: $colorFour(53, 53, 53);
+            &:hover{
+                color: $activedColor;
+            }
+    
+            transition: 0.2s;
+        }
+
+        .nav_icon{
+            color: $colorFour(53, 53, 53);
+            &:hover{
+                color: $activedColor;
+            }
+            transition: 0.2s;
+        }
+
+        //keeps the collapsed list hidden while navbar is extended
+        .closed_nav_list_container{
+            display: none;
+        }
+
+    }
+
+    //CLOSED NAV STYLING
+    .open_nav_list_container{
+        display: none;
+    }
+
+    //styling for when navbar is not hovered over (when navbar is closed)
+    .closed_nav_list_container{
+        text-align: center;
+        height: 100%;
+        overflow: auto;
+
+        .nav_dot_container{
+            display: inline-block;
+            margin-top: 10rem;
+        }
+    }
+
+}
+
+.about_page_container{
+    background-color: $colorOne;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+
+    .goal_statement_container{
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .changing_text_container{
+        width: 50%;
+        margin: 0 auto;
+    }
+}
+
+.education_page_container{ 
+    background-color: $colorTwo;
+    height: 100%; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    min-height: 100vh;
+
+    .degree_info_container{
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .relevant_classes_container{
+        display: flex;
+        justify-content: center;
+    }
+
+    .relevant_classes_column{
+        text-align: center;
+    }
+
+    .class_list{
+        list-style: none;
+    }
+
+}
+
+.skills_page_container{
+    background-color: $colorThree;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+
+    .skills_lists_container{
+        display: flex;
+        justify-content: center;
+
+        .skills_column{
+            .skills_list{
+                list-style: none;
+            }
+        }
+
+    }
+}

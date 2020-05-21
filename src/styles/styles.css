@@ -1,0 +1,196 @@
+html, body {
+  font-family: "Open Sans Condensed", sans-serif;
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  min-width: 100%;
+  margin: 0px;
+}
+
+.navbar {
+  background-color: #F96900;
+  height: 100%;
+  width: 2.5%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow: hidden;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+.navbar:hover {
+  width: 15%;
+  -webkit-transition: width .41s;
+  transition: width .41s;
+}
+
+.navbar:hover .open_nav_list_container {
+  text-align: center;
+  display: block;
+  height: 100%;
+}
+
+.navbar:hover #profile_picture {
+  border-radius: 50%;
+  width: 100%;
+  height: auto;
+  max-width: 60%;
+  max-height: 60%;
+  border: 3px groove #F17F29 218, 213, 213;
+}
+
+.navbar:hover .profile_picture_container {
+  margin-top: 4rem;
+}
+
+.navbar:hover .nav_links_container {
+  margin-top: 1.5rem;
+}
+
+.navbar:hover .nav_icons_container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.navbar:hover .nav_link {
+  color: #F96900 53, 53, 53;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.navbar:hover .nav_link:hover {
+  color: #e6b71f;
+}
+
+.navbar:hover .nav_icon {
+  color: #F96900 53, 53, 53;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.navbar:hover .nav_icon:hover {
+  color: #e6b71f;
+}
+
+.navbar:hover .closed_nav_list_container {
+  display: none;
+}
+
+.navbar .open_nav_list_container {
+  display: none;
+}
+
+.navbar .closed_nav_list_container {
+  text-align: center;
+  height: 100%;
+  overflow: auto;
+}
+
+.navbar .closed_nav_list_container .nav_dot_container {
+  display: inline-block;
+  margin-top: 10rem;
+}
+
+.about_page_container {
+  background-color: #65DEF1;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.about_page_container .goal_statement_container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.about_page_container .changing_text_container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.education_page_container {
+  background-color: #A8DCD1;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100vh;
+}
+
+.education_page_container .degree_info_container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.education_page_container .relevant_classes_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.education_page_container .relevant_classes_column {
+  text-align: center;
+}
+
+.education_page_container .class_list {
+  list-style: none;
+}
+
+.skills_page_container {
+  background-color: #DCE2C8;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.skills_page_container .skills_lists_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.skills_page_container .skills_lists_container .skills_column .skills_list {
+  list-style: none;
+}
+/*# sourceMappingURL=styles.css.map */
