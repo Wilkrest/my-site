@@ -1,14 +1,69 @@
 html, body {
-  font-family: "Open Sans Condensed", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   height: 100%;
   min-height: 100%;
   width: 100%;
   min-width: 100%;
-  margin: 0px;
+  margin: 0;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: white grey;
+}
+
+html ::-webkit-scrollbar, body ::-webkit-scrollbar {
+  width: .5rem;
+  background: grey;
+}
+
+html ::-webkit-scrollbar-thumb, body ::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 10px;
+}
+
+.overlay {
+  position: fixed;
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  background-color: red;
+  opacity: 0;
+  z-index: 3;
+}
+
+.clicked_link {
+  display: block;
+  -webkit-animation-name: removeOverlay;
+          animation-name: removeOverlay;
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes removeOverlay {
+  0% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  100% {
+    -webkit-transform: translateY(1000%);
+            transform: translateY(1000%);
+  }
+}
+
+@keyframes removeOverlay {
+  0% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  100% {
+    -webkit-transform: translateY(1000%);
+            transform: translateY(1000%);
+  }
 }
 
 .navbar {
-  background-color: #F96900;
+  background-color: #242423;
   height: 100%;
   width: 2.5%;
   position: fixed;
@@ -16,64 +71,130 @@ html, body {
   top: 0;
   left: 0;
   overflow-x: hidden;
-  overflow: hidden;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-  font-family: "Open Sans Condensed", sans-serif;
+  overflow: visible;
 }
 
 .navbar:hover {
-  width: 15%;
-  -webkit-transition: width .41s;
-  transition: width .41s;
+  -webkit-animation-name: extend_nav;
+          animation-name: extend_nav;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  overflow: visible;
+  color: white;
 }
 
 .navbar:hover .open_nav_list_container {
   text-align: center;
-  display: block;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.navbar:hover #profile_picture {
-  border-radius: 50%;
-  width: 100%;
-  height: auto;
+.navbar:hover .open_nav_list_container .nav_name_container {
+  width: 150%;
+  height: 1%;
+  color: #242423;
+  font-size: larger;
+  -webkit-animation-name: name_bounce;
+          animation-name: name_bounce;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  z-index: 2;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.navbar:hover .open_nav_list_container .profile_picture_container {
+  -webkit-animation-name: profile_drop;
+          animation-name: profile_drop;
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.navbar:hover .open_nav_list_container .profile_picture_container #profile_picture {
   max-width: 60%;
-  max-height: 60%;
-  border: 3px groove #F17F29 218, 213, 213;
-}
-
-.navbar:hover .profile_picture_container {
-  margin-top: 4rem;
+  border-radius: 50%;
 }
 
 .navbar:hover .nav_links_container {
-  margin-top: 1.5rem;
+  margin-top: 3rem;
+}
+
+.navbar:hover .nav_links_container #about_link {
+  -webkit-animation-name: nav_link_slide;
+          animation-name: nav_link_slide;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.navbar:hover .nav_links_container #education_link {
+  -webkit-animation-name: nav_link_slide;
+          animation-name: nav_link_slide;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.navbar:hover .nav_links_container #skills_link {
+  -webkit-animation-name: nav_link_slide;
+          animation-name: nav_link_slide;
+  -webkit-animation-duration: 0.6s;
+          animation-duration: 0.6s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.navbar:hover .nav_links_container .nav_link {
+  color: white;
+  display: block;
+  margin: 1rem;
+  text-decoration: none;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.navbar:hover .nav_links_container .nav_link:hover {
+  color: #ffc400;
 }
 
 .navbar:hover .nav_icons_container {
-  margin-top: 2rem;
+  margin-top: 12rem;
   text-align: center;
 }
 
-.navbar:hover .nav_link {
-  color: #F96900 53, 53, 53;
+.navbar:hover .nav_icons_container .nav_icon {
+  color: rgba(255, 255, 255, 0.452);
   -webkit-transition: 0.2s;
   transition: 0.2s;
+  margin: .3rem;
+  text-decoration: none;
 }
 
-.navbar:hover .nav_link:hover {
-  color: #e6b71f;
+.navbar:hover .nav_icons_container .nav_icon:hover {
+  color: #ffc400;
 }
 
-.navbar:hover .nav_icon {
-  color: #F96900 53, 53, 53;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-
-.navbar:hover .nav_icon:hover {
-  color: #e6b71f;
+.navbar:hover + .resume {
+  background-color: black;
+  opacity: .1;
+  z-index: 0;
+  -webkit-transition: background-color .41s linear;
+  transition: background-color .41s linear;
 }
 
 .navbar:hover .closed_nav_list_container {
@@ -87,7 +208,7 @@ html, body {
 .navbar .closed_nav_list_container {
   text-align: center;
   height: 100%;
-  overflow: auto;
+  color: white;
 }
 
 .navbar .closed_nav_list_container .nav_dot_container {
@@ -96,7 +217,7 @@ html, body {
 }
 
 .about_page_container {
-  background-color: #65DEF1;
+  background-color: #CFDBD5;
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -123,8 +244,14 @@ html, body {
   margin: 0 auto;
 }
 
+.about_page_container .name_container {
+  position: absolute;
+  top: 0;
+  left: 4%;
+}
+
 .education_page_container {
-  background-color: #A8DCD1;
+  background-color: #E8EDDF;
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -164,7 +291,7 @@ html, body {
 }
 
 .skills_page_container {
-  background-color: #DCE2C8;
+  background-color: #F5CB5C;
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -192,5 +319,97 @@ html, body {
 
 .skills_page_container .skills_lists_container .skills_column .skills_list {
   list-style: none;
+}
+
+@-webkit-keyframes extend_nav {
+  0% {
+    width: 2.5%;
+  }
+  100% {
+    width: 15%;
+  }
+}
+
+@keyframes extend_nav {
+  0% {
+    width: 2.5%;
+  }
+  100% {
+    width: 15%;
+  }
+}
+
+@-webkit-keyframes profile_drop {
+  0% {
+    -webkit-transform: translateX(-9000%);
+            transform: translateX(-9000%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes profile_drop {
+  0% {
+    -webkit-transform: translateX(-9000%);
+            transform: translateX(-9000%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes name_bounce {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  60% {
+    -webkit-transform: translateX(150%);
+            transform: translateX(150%);
+  }
+  100% {
+    -webkit-transform: translateX(70%);
+            transform: translateX(70%);
+  }
+}
+
+@keyframes name_bounce {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  60% {
+    -webkit-transform: translateX(150%);
+            transform: translateX(150%);
+  }
+  100% {
+    -webkit-transform: translateX(70%);
+            transform: translateX(70%);
+  }
+}
+
+@-webkit-keyframes nav_link_slide {
+  0% {
+    -webkit-transform: translateY(9999%);
+            transform: translateY(9999%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes nav_link_slide {
+  0% {
+    -webkit-transform: translateY(9999%);
+            transform: translateY(9999%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
 }
 /*# sourceMappingURL=styles.css.map */

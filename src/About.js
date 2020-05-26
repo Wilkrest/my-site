@@ -5,7 +5,10 @@ class About extends React.Component{
 
     render(){
         return(
-            <div className="about_page_container">
+            <div className="about_page_container" id="about">
+                <div className="about_title_container">
+                    <h1 className="about_title">About Me</h1> 
+                </div>
                 <div className="goal_statement_container">
                     <p className="content" id="goal_statement">
                     Extremely eager graduate with a genuine drive for creating elegant and powerful web applications. I am

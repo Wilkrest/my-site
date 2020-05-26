@@ -1,12 +1,20 @@
-$colorOne: #65DEF1;
-$colorTwo: #A8DCD1;
-$colorThree: #DCE2C8;
-$colorFour: #F96900;
-$colorFive: #F17F29;
+@mixin navAnimation($time){
+    animation-name: nav_link_slide;
+    animation-duration: $time;
+    animation-fill-mode: forwards;
+}
 
-$activedColor: rgb(230, 183, 31);
-$font: 'Open Sans Condensed', sans-serif;
+$maxTime: .5s;
 
+$colorOne: #CFDBD5;
+$colorTwo: #E8EDDF;
+$colorThree: #F5CB5C;
+$colorFour: #242423;
+$colorFive: #333533;
+
+$activedColor: rgb(255, 196, 0);
+$font: 'IBM Plex Sans', sans-serif;
+ 
 html, body{
     //overflow: hidden;
     font-family: $font;
@@ -14,10 +22,50 @@ html, body{
     min-height: 100%;
     width: 100%;
     min-width: 100%;
-    margin: 0px;
+    margin: 0;
+    scroll-behavior: smooth;
+
+    scrollbar-width: thin;
+    scrollbar-color: white grey;
+
+    ::-webkit-scrollbar{
+        width: .5rem;
+        background: grey;
+    } 
+    ::-webkit-scrollbar-thumb{
+        background-color: white;
+        border-radius: 10px;
+    }
 } 
 
-.navbar{
+.overlay{
+    position: fixed;
+    display:none;
+    height: 100vh;
+    width: 100vw;
+    background-color: red;
+    opacity: 0;
+    z-index: 3;
+}
+
+.clicked_link{
+    display: block;
+    animation-name: removeOverlay;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes removeOverlay{
+    0%{
+        transform: translateY(0%);
+    }
+
+    100%{
+        transform: translateY(1000%);
+    }
+}
+
+.navbar{ 
     background-color: $colorFour;
     height: 100%;
     width: 2.5%;
@@ -26,66 +74,106 @@ html, body{
     top: 0;
     left: 0;
     overflow-x: hidden;
-    overflow: hidden;
-    transition: 0.4s;
-    font-family: $font;
+    overflow: visible;
 
     //OPEN NAV STYLING
     //styling for when cursor hovers over navbar (when navbar is extended)
     &:hover{
-        width: 15%;
-        transition: width .41s;
+        animation-name: extend_nav;
+        animation-duration: .5s;
+        animation-fill-mode: forwards;
+        overflow: visible;
+        color: white;
 
+        
         .open_nav_list_container{
             text-align: center;
-            display: block;
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+
+            .nav_name_container{
+                width: 150%;
+                height: 1%;
+                color: $colorFour;
+                font-size: larger;
+                animation-name: name_bounce;
+                animation-duration: $maxTime;
+                z-index: 2;
+                animation-fill-mode: forwards;
+            }
+
+
+            .profile_picture_container{
+
+                #profile_picture{
+                    max-width: 60%;
+                    border-radius: 50%;
+                }
+                animation-name: profile_drop;
+                animation-duration: .2s;
+                animation-fill-mode: forwards;
+            }
+
         }
 
-        #profile_picture{
-            border-radius: 50%;     
-            width: 100%;
-            height: auto;
-            max-width: 60%;
-            max-height: 60%; 
-            border: 3px groove $colorFive(218, 213, 213);
-        } 
-
-        .profile_picture_container{
-            margin-top: 4rem;
-        }
 
         .nav_links_container{
-            margin-top: 1.5rem;
-        }
+            margin-top: 3rem;
 
+            #about_link{
+                @include navAnimation(.3s)
+            }
+
+            #education_link{
+                @include navAnimation(.5s)
+            }
+
+            #skills_link{
+                @include navAnimation(.6s)
+            }
+
+            .nav_link{  
+                color:white;
+                display: block;
+                margin: 1rem;
+                text-decoration: none;
+
+                &:hover{
+                    color: $activedColor;
+                }
+                transition: 0.2s;
+            }
+        }
+        
         .nav_icons_container{
-            margin-top: 2rem;
+            margin-top: 12rem;
             text-align: center;
+
+            .nav_icon{
+                color: rgba(255, 255, 255, 0.452);
+                &:hover{
+                    color: $activedColor;
+                }
+                transition: 0.2s;
+                margin: .3rem;
+                text-decoration: none;
+            }
         }
 
-        .nav_link{  
-            color: $colorFour(53, 53, 53);
-            &:hover{
-                color: $activedColor;
-            }
-    
-            transition: 0.2s;
-        }
-
-        .nav_icon{
-            color: $colorFour(53, 53, 53);
-            &:hover{
-                color: $activedColor;
-            }
-            transition: 0.2s;
+        + .resume{
+            background-color: rgb(0, 0, 0);
+            opacity: .1;
+            z-index: 0;
+            transition: background-color .41s linear;
         }
 
         //keeps the collapsed list hidden while navbar is extended
         .closed_nav_list_container{
             display: none;
         }
-
     }
 
     //CLOSED NAV STYLING
@@ -97,7 +185,8 @@ html, body{
     .closed_nav_list_container{
         text-align: center;
         height: 100%;
-        overflow: auto;
+        //overflow: auto;
+        color: white;
 
         .nav_dot_container{
             display: inline-block;
@@ -125,6 +214,12 @@ html, body{
     .changing_text_container{
         width: 50%;
         margin: 0 auto;
+    }
+
+    .name_container{
+        position: absolute;
+        top: 0;
+        left: 4%;
     }
 }
 
@@ -179,4 +274,51 @@ html, body{
         }
 
     }
+}
+
+@keyframes extend_nav{
+    0%{
+        width: 2.5%;
+    }
+
+    100%{
+        width: 15%;
+    }
+}
+
+
+
+@keyframes profile_drop{
+    0%{
+        transform: translateX(-9000%);
+    }
+
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+@keyframes name_bounce{
+    0%{
+        transform: translateX(0);
+   }
+
+    60%{
+        transform: translateX(150%);
+    }
+
+    100%{
+        transform: translateX(70%); 
+    }
+}
+
+@keyframes nav_link_slide{
+    0%{
+        transform: translateY(9999%);
+    }
+
+    100%{
+        transform: translateY(0%);
+    }
+
 }

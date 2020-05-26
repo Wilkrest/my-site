@@ -3,7 +3,10 @@ import React from 'react';
 class Education extends React.Component{
     render(){
         return(
-            <div className="education_page_container">
+            <div className="education_page_container" id="education">
+                <div className="education_title_container">
+                    <h1 className="education_title">Education</h1>
+                </div>
                 <div className="degree_info_container">
                     <h2> Bachelor of Science in Computer Science</h2>
                     <h3>University of North Texas, Denton, TX</h3>

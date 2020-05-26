@@ -10,9 +10,11 @@
     return (
       <>
         <Navbar/>
-        <About/>
-        <Education/>
-        <Skills />
+        <div className="resume">
+          <About/>
+          <Education/>
+          <Skills />
+        </div>
       </>
     );
   } 
