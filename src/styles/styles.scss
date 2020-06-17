@@ -1,22 +1,26 @@
-@mixin navAnimation($time){
-    animation-name: nav_link_slide;
-    animation-duration: $time;
-    animation-fill-mode: forwards;
-}
-
-$maxTime: .5s;
-
+$maxTime: .35s;
 $colorOne: #CFDBD5;
 $colorTwo: #E8EDDF;
 $colorThree: #F5CB5C;
 $colorFour: #242423;
 $colorFive: #333533;
-
 $activedColor: rgb(255, 196, 0);
 $font: 'IBM Plex Sans', sans-serif;
+$closedNavWidth: 1.7%;
  
+@mixin link_slide_in($time){
+    animation-name: nav_link_slide_in;
+    animation-duration: $time;
+    animation-fill-mode: forwards;
+}
+
+@mixin link_slide_out($time){
+    animation-name: nav_link_slide_out;
+    animation-duration: $time;
+    animation-fill-mode: forwards;
+}
+
 html, body{
-    //overflow: hidden;
     font-family: $font;
     height: 100%; 
     min-height: 100%;
@@ -24,7 +28,6 @@ html, body{
     min-width: 100%;
     margin: 0;
     scroll-behavior: smooth;
-
     scrollbar-width: thin;
     scrollbar-color: white grey;
 
@@ -36,166 +39,394 @@ html, body{
         background-color: white;
         border-radius: 10px;
     }
-} 
-
-.overlay{
-    position: fixed;
-    display:none;
-    height: 100vh;
-    width: 100vw;
-    background-color: red;
-    opacity: 0;
-    z-index: 3;
 }
 
-.clicked_link{
-    display: block;
-    animation-name: removeOverlay;
-    animation-duration: .3s;
+.closed_navbar{
+    background-color: $colorFive;
+    height: 100%;
+    width: $closedNavWidth;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.hide_closed_nav{
+    animation-name: hide_closed_nav;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+ 
+.reveal_closed_nav{
+    animation-name: reveal_closed_nav;
+    animation-duration: $maxTime;
     animation-fill-mode: forwards;
 }
 
-@keyframes removeOverlay{
+@keyframes hide_closed_nav{
     0%{
-        transform: translateY(0%);
+        transform: translateX(0);
     }
 
     100%{
-        transform: translateY(1000%);
+        transform: translateX(-300px);
     }
 }
 
+@keyframes reveal_closed_nav{
+    0%{
+        transform: translateX(-300px);
+    }
+
+    100%{
+        transform: translateX(0);
+    }
+}
+
+.closed_nav_arrow_container{
+    margin-top: 1.5rem;
+}
+
+.closed_nav_dot_container{
+    margin-top: 9.3rem;
+}
+
 .navbar{ 
-    background-color: $colorFour;
+    //background-color: $colorFour;
+    background-image: linear-gradient(to bottom, $colorFour , $colorFive);
     height: 100%;
-    width: 2.5%;
+    width: $closedNavWidth;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
     overflow-x: hidden;
     overflow: visible;
+    color: white;
+}
 
-    //OPEN NAV STYLING
-    //styling for when cursor hovers over navbar (when navbar is extended)
+.dim_screen{
+    background-color: rgb(0, 0, 0);
+    opacity: .1;
+    z-index: 0;
+    transition: background-color .41s linear;
+}
+
+//styling for when the navbar is closed
+.closed_nav_icon_container{
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+}
+
+.closed_nav_arrow{
+    margin-top: 1rem;
+}
+
+.rotate_arrow_out{
+    animation-name:rotate_arrow_out;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+}
+
+.rotate_arrow_in{
+    animation-name:rotate_arrow_in;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes rotate_arrow_out{
+    0%{
+        transform: rotate(180deg);
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes rotate_arrow_in{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(180deg);
+        
+    }
+}
+
+.nav_dot_container{
+    margin-top: 13rem;
+}
+
+.closed_nav_dot{
+    margin-bottom: .7rem;
+}
+
+//animation classes for closing and opening the navbar
+.close_nav{
+    animation-name: close_nav;
+    animation-fill-mode: forwards;
+    animation-duration: $maxTime
+}
+
+.extend_nav{
+    animation-name: extend_nav;
+    animation-fill-mode: forwards;
+    animation-duration: $maxTime
+}
+
+@keyframes extend_nav{
+    0%{
+        width: 1.5%;
+    }
+
+    100%{
+        width: 15%;
+    }
+}
+
+@keyframes close_nav{
+    0%{
+        width: 15%;
+    }
+
+    100%{
+        width: 1.5%;
+    }
+}
+
+//styling for when the navbar is extended
+.open_nav_list_container{
+    text-align: center;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nav_name_container{
+    width: 150%;
+    height: 1%;
+    color: $colorFour;
+    font-size: larger;
+    z-index: 2;
+}
+
+//animation classes for the navbar's name placeholder
+.name_bounce_in{
+    animation-name: name_bounce_in;
+    animation-duration: $maxTime;
+    animation-fill-mode: forwards;
+}
+
+.name_bounce_out{
+    animation-name: name_bounce_out;
+    animation-duration: $maxTime;
+    animation-fill-mode: forwards;
+}
+
+//styling for the profile picture
+#profile_picture{
+    max-width: 60%;
+    border-radius: 50%;;
+}
+
+//animation classes for the profile picture
+.reveal_picture{
+    animation-name: reveal_picture; 
+    animation-duration: $maxTime;
+    animation-fill-mode: forwards;
+}
+
+.hide_picture{
+    animation-name: hide_picture;
+    animation-duration: $maxTime;
+    animation-fill-mode: forwards;
+}
+
+@keyframes reveal_picture{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes hide_picture{
+    0%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
+
+.nav_links_container{
+    margin-top: 3rem;
+}
+
+.hide_nav_link_container{
+    height: 0%;
+}
+
+.nav_link{  
+    color:white;
+    display: block;
+    margin: 1rem;
+    text-decoration: none;
+
     &:hover{
-        animation-name: extend_nav;
-        animation-duration: .5s;
-        animation-fill-mode: forwards;
-        overflow: visible;
-        color: white;
+        color: $activedColor;
+    }
+    transition: 0.2s;
+}
 
-        
-        .open_nav_list_container{
-            text-align: center;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+//animation for the links
+.link_slide_in1{
+    @include link_slide_in(.3s);
+}
 
+.link_slide_in2{
+    @include link_slide_in(.4s)
+}
 
-            .nav_name_container{
-                width: 150%;
-                height: 1%;
-                color: $colorFour;
-                font-size: larger;
-                animation-name: name_bounce;
-                animation-duration: $maxTime;
-                z-index: 2;
-                animation-fill-mode: forwards;
-            }
+.link_slide_in3{
+    @include link_slide_in(.5s)
+}
 
+.link_slide_out1{
+    @include link_slide_out(.5s)
+}
 
-            .profile_picture_container{
+.link_slide_out2{
+    @include link_slide_out(.4s)
+}
 
-                #profile_picture{
-                    max-width: 60%;
-                    border-radius: 50%;
-                }
-                animation-name: profile_drop;
-                animation-duration: .2s;
-                animation-fill-mode: forwards;
-            }
+.link_slide_out3{
+    @include link_slide_out(.3s)
+}
 
+.nav_icons_container{
+    margin-top: 11rem;
+    text-align: center;
+
+    .nav_icon{
+        color: rgba(255, 255, 255, 0.452);
+        &:hover{
+            color: $activedColor;
         }
+        transition: 0.2s;
+        margin: .3rem;
+        text-decoration: none;
+    }
+}
 
+.reveal_icons{
+    animation-name: reveal_icons;
+    animation-duration: $maxTime;
+    animation-fill-mode: forwards;
+}
 
-        .nav_links_container{
-            margin-top: 3rem;
+.hide_icons{
+    animation-name: hide_icons;
+    animation-duration: $maxTime;
+    animation-fill-mode: forwards;
+}
 
-            #about_link{
-                @include navAnimation(.3s)
-            }
-
-            #education_link{
-                @include navAnimation(.5s)
-            }
-
-            #skills_link{
-                @include navAnimation(.6s)
-            }
-
-            .nav_link{  
-                color:white;
-                display: block;
-                margin: 1rem;
-                text-decoration: none;
-
-                &:hover{
-                    color: $activedColor;
-                }
-                transition: 0.2s;
-            }
-        }
-        
-        .nav_icons_container{
-            margin-top: 12rem;
-            text-align: center;
-
-            .nav_icon{
-                color: rgba(255, 255, 255, 0.452);
-                &:hover{
-                    color: $activedColor;
-                }
-                transition: 0.2s;
-                margin: .3rem;
-                text-decoration: none;
-            }
-        }
-
-        + .resume{
-            background-color: rgb(0, 0, 0);
-            opacity: .1;
-            z-index: 0;
-            transition: background-color .41s linear;
-        }
-
-        //keeps the collapsed list hidden while navbar is extended
-        .closed_nav_list_container{
-            display: none;
-        }
+@keyframes reveal_icons{
+    0%{
+        opacity: 0;
     }
 
-    //CLOSED NAV STYLING
-    .open_nav_list_container{
-        display: none;
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes hide_icons{
+    0%{
+        opacity: 1;
     }
 
-    //styling for when navbar is not hovered over (when navbar is closed)
-    .closed_nav_list_container{
-        text-align: center;
-        height: 100%;
-        //overflow: auto;
-        color: white;
+    100%{
+        opacity: 0;
+    }
+}
 
-        .nav_dot_container{
-            display: inline-block;
-            margin-top: 10rem;
-        }
+@keyframes name_bounce_in{
+    0%{
+        transform: translateX(0);
+   }
+
+   10%{
+       opacity: 0;
+   }
+
+    60%{
+        transform: translateX(150%);
+    }
+
+    100%{
+        transform: translateX(70%);
+        visibility: visible;
+    }
+}
+
+@keyframes name_bounce_out{
+    0%{
+        transform: translateX(70%);
+   }
+
+    40%{
+        transform: translateX(150%);
+    }
+
+    99%{
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0);
+        opacity: 0;
+    }
+}
+
+@keyframes nav_link_slide_in{
+    0%{
+        transform: translateY(9999%);
+    }
+
+    100%{
+        transform: translateY(0%);
+    }
+
+} 
+
+@keyframes nav_link_slide_out{
+    0%{
+        transform: translateY(0%);
+    }
+
+    100%{
+        transform: translateY(9999%);
     }
 
 }
 
+//About me styling
 .about_page_container{
     background-color: $colorOne;
     height: 100%;
@@ -203,27 +434,33 @@ html, body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
-    min-height: 100vh;
-
-    .goal_statement_container{
-        width: 50%;
-        margin: 0 auto;
-    }
-
-    .changing_text_container{
-        width: 50%;
-        margin: 0 auto;
-    }
-
-    .name_container{
-        position: absolute;
-        top: 0;
-        left: 4%;
-    }
+    text-align: center; 
+    min-height: 300vh;
 }
 
-.education_page_container{ 
+.about_title_container{
+    font-size: x-large;
+}
+
+.goal_statement_container{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.changing_text_container{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.name_container{
+    position: absolute;
+    top: 0;
+    left: 4%;
+}
+
+
+//Education styling
+.education_page_container{  
     background-color: $colorTwo;
     height: 100%; 
     width: 100%;
@@ -233,26 +470,28 @@ html, body{
     flex-direction: column;
     min-height: 100vh;
 
-    .degree_info_container{
-        width: 50%;
-        margin: 0 auto;
-    }
-
-    .relevant_classes_container{
-        display: flex;
-        justify-content: center;
-    }
-
-    .relevant_classes_column{
-        text-align: center;
-    }
-
-    .class_list{
-        list-style: none;
-    }
-
 }
 
+.degree_info_container{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.relevant_classes_container{
+    display: flex;
+    justify-content: center;
+}
+
+.relevant_classes_column{
+    text-align: center;
+}
+
+.class_list{
+    list-style: none;
+}
+
+
+//Skills styling
 .skills_page_container{
     background-color: $colorThree;
     height: 100%;
@@ -262,63 +501,16 @@ html, body{
     justify-content: center;
     text-align: center;
     min-height: 100vh;
+}
 
-    .skills_lists_container{
-        display: flex;
-        justify-content: center;
+.skills_lists_container{
+    display: flex;
+    justify-content: center;
 
-        .skills_column{
-            .skills_list{
-                list-style: none;
-            }
+    .skills_column{
+        .skills_list{
+            list-style: none;
         }
-
-    }
-}
-
-@keyframes extend_nav{
-    0%{
-        width: 2.5%;
-    }
-
-    100%{
-        width: 15%;
-    }
-}
-
-
-
-@keyframes profile_drop{
-    0%{
-        transform: translateX(-9000%);
-    }
-
-    100%{
-        transform: translateX(0%);
-    }
-}
-
-@keyframes name_bounce{
-    0%{
-        transform: translateX(0);
-   }
-
-    60%{
-        transform: translateX(150%);
-    }
-
-    100%{
-        transform: translateX(70%); 
-    }
-}
-
-@keyframes nav_link_slide{
-    0%{
-        transform: translateY(9999%);
-    }
-
-    100%{
-        transform: translateY(0%);
     }
 
 }

@@ -6,17 +6,31 @@
 
   import "./styles/styles.css"
 
-  function App() {
-    return (
-      <>
-        <Navbar/>
-        <div className="resume">
-          <About/>
-          <Education/>
-          <Skills />
+  class App extends React.Component { 
+
+    constructor(props){
+      super(props);
+
+      this.handleScroll = this.handleScroll.bind(this);
+    }
+
+    handleScroll(){
+      console.log("it's working")
+    }
+
+
+    render(){
+      return (
+        <div className="app" onScroll={this.handleScroll}>
+          <Navbar/>
+            <div className="resume" id="resume">
+              <About/>
+              <Education/>
+              <Skills />
+            </div>
         </div>
-      </>
-    );
+      );
+    }
   } 
 
   export default App;

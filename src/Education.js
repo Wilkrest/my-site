@@ -1,6 +1,7 @@
 import React from 'react';
 
 class Education extends React.Component{
+
     render(){
         return(
             <div className="education_page_container" id="education">
@@ -41,8 +42,6 @@ class Education extends React.Component{
             </div>
         )
     }
-
-
 }
 
 export default Education;
