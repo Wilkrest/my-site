@@ -20,6 +20,66 @@ html ::-webkit-scrollbar-thumb, body ::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
 
+.resume {
+  position: relative;
+  z-index: 2;
+  background-color: black;
+}
+
+.dim_background {
+  -webkit-animation-name: dim_screen;
+          animation-name: dim_screen;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.65s;
+          animation-duration: 0.65s;
+}
+
+.undim_background {
+  -webkit-animation-name: undim_screen;
+          animation-name: undim_screen;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.65s;
+          animation-duration: 0.65s;
+}
+
+@-webkit-keyframes dim_screen {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .1;
+  }
+}
+
+@keyframes dim_screen {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .1;
+  }
+}
+
+@-webkit-keyframes undim_screen {
+  0% {
+    opacity: .1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes undim_screen {
+  0% {
+    opacity: .1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .closed_navbar {
   background-color: #333533;
   height: 100%;
@@ -115,20 +175,12 @@ html ::-webkit-scrollbar-thumb, body ::-webkit-scrollbar-thumb {
   height: 100%;
   width: 1.7%;
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   top: 0;
   left: 0;
   overflow-x: hidden;
   overflow: visible;
   color: white;
-}
-
-.dim_screen {
-  background-color: black;
-  opacity: .1;
-  z-index: 0;
-  -webkit-transition: background-color .41s linear;
-  transition: background-color .41s linear;
 }
 
 .closed_nav_icon_container {
@@ -643,32 +695,87 @@ html ::-webkit-scrollbar-thumb, body ::-webkit-scrollbar-thumb {
   background-color: #CFDBD5;
   height: 100%;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   text-align: center;
-  min-height: 300vh;
+  min-height: 400vh;
+  background-image: url("../images/adventure-alpine-background-black-and-white-355747.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 5% 50% 5% 20%;
+      grid-template-columns: 20% 5% 50% 5% 20%;
+  -ms-grid-rows: 10% 15% auto;
+      grid-template-rows: 10% 15% auto;
 }
 
 .about_title_container {
   font-size: x-large;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / 2;
 }
 
 .goal_statement_container {
-  width: 50%;
-  margin: 0 auto;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-column: 2 / 5;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/ 3;
 }
 
-.changing_text_container {
-  width: 50%;
-  margin: 0 auto;
+.goal_statement_backdrop {
+  background-color: rgba(255, 255, 255, 0.849);
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.bio_container {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-column: 2 / 5;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 2;
+  grid-row: 3 / 5;
+}
+
+.img_container {
+  height: 90vh;
+  background-size: contain;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: none;
+}
+
+#art_image {
+  background-image: url("../images/teapotart.jpg");
+}
+
+#music_image {
+  background-image: url("../images/sky2.JPG");
+}
+
+#dogs_image {
+  background-image: url("../images/nickswen1.jpg");
+}
+
+.changing_text_backdrop {
+  background-color: rgba(255, 255, 255, 0.781);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .name_container {

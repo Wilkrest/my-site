@@ -7,6 +7,8 @@ $colorFive: #333533;
 $activedColor: rgb(255, 196, 0);
 $font: 'IBM Plex Sans', sans-serif;
 $closedNavWidth: 1.7%;
+$pageWidth: 100%;
+//100% - $closedNavWidth;
  
 @mixin link_slide_in($time){
     animation-name: nav_link_slide_in;
@@ -30,7 +32,6 @@ html, body{
     scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: white grey;
-
     ::-webkit-scrollbar{
         width: .5rem;
         background: grey;
@@ -38,6 +39,44 @@ html, body{
     ::-webkit-scrollbar-thumb{
         background-color: white;
         border-radius: 10px;
+    }
+}
+
+.resume{
+    position: relative;
+    z-index: 2;
+    background-color: black;   
+}
+
+.dim_background{
+    animation-name: dim_screen;
+    animation-fill-mode: forwards;
+    animation-duration: $maxTime + .3s;
+}
+
+.undim_background{
+    animation-name: undim_screen;
+    animation-fill-mode: forwards;
+    animation-duration: $maxTime + .3s;
+}
+
+@keyframes dim_screen{
+    0%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: .1;
+    }
+}
+
+@keyframes undim_screen{
+    0%{
+        opacity: .1;
+    }
+
+    100%{
+        opacity: 1;
     }
 }
 
@@ -102,19 +141,12 @@ html, body{
     height: 100%;
     width: $closedNavWidth;
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     top: 0;
     left: 0;
     overflow-x: hidden;
     overflow: visible;
     color: white;
-}
-
-.dim_screen{
-    background-color: rgb(0, 0, 0);
-    opacity: .1;
-    z-index: 0;
-    transition: background-color .41s linear;
 }
 
 //styling for when the navbar is closed
@@ -429,27 +461,80 @@ html, body{
 //About me styling
 .about_page_container{
     background-color: $colorOne;
+    //background-color: white;
     height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: $pageWidth;
     text-align: center; 
-    min-height: 300vh;
+    min-height: 400vh;
+    background-image: url("../images/adventure-alpine-background-black-and-white-355747.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: grid;
+    grid-template-columns: 20% 5% 50% 5% 20%;
+    grid-template-rows: 10% 15% auto;
 }
 
 .about_title_container{
     font-size: x-large;
+    justify-self: end;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
 }
 
 .goal_statement_container{
-    width: 50%;
-    margin: 0 auto;
+    justify-self: center;
+    
+
+    grid-column: 2 / 5;
+    grid-row: 2/ 3;
+    .changing_text_container{
+        
+    }
 }
 
-.changing_text_container{
-    width: 50%;
-    margin: 0 auto;
+.goal_statement_backdrop{
+    background-color: rgba(255, 255, 255, 0.849);
+    //height: 25%;
+    align-self: center;
+}
+
+.bio_container{
+    //background-color: $colorThree;
+    grid-column: 2 / 5;
+    grid-row: 3 / 5;
+
+}
+
+.img_container{
+    height: 90vh;
+    background-size: contain;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: none;
+    
+}
+
+#art_image{
+    background-image: url("../images/teapotart.jpg");
+}
+
+#music_image{
+    background-image: url("../images/sky2.JPG");
+}
+
+#dogs_image{
+    background-image: url("../images/nickswen1.jpg");
+}
+
+.changing_text_backdrop{
+    background-color: rgba(255, 255, 255, 0.781);
+    width: fit-content;
+    
 }
 
 .name_container{
@@ -458,12 +543,11 @@ html, body{
     left: 4%;
 }
 
-
 //Education styling
 .education_page_container{  
     background-color: $colorTwo;
     height: 100%; 
-    width: 100%;
+    width: $pageWidth;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -495,7 +579,7 @@ html, body{
 .skills_page_container{
     background-color: $colorThree;
     height: 100%;
-    width: 100%;
+    width: $pageWidth;
     display: flex;
     flex-direction: column;
     justify-content: center;

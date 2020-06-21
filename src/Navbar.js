@@ -20,6 +20,10 @@ class Navbar extends React.Component{
         const openContainer = document.getElementById("open_nav_list_container");
         openContainer.style.display = "flex";
 
+        //call function to dim screen
+
+        this.dimScreen("dim");
+
         //call all animation functions to open navbar
         this.animateElements("in");
         this.animateClosedNav();
@@ -30,6 +34,8 @@ class Navbar extends React.Component{
         var navbar = document.getElementById("navbar");
         navbar.classList.remove("extend_nav");
         navbar.classList.add("close_nav");
+
+        this.dimScreen();
 
         //call all animation functions to close navbar
         this.animateElements();
@@ -75,20 +81,9 @@ class Navbar extends React.Component{
                 <div className="closed_nav_icon_container">
                     <div className="closed_nav_arrow_container">
                         <div className="nav_arrow">
-                            <p style={{fontWeight:"bold"}} id="arrow">></p>
+                            <p style={{fontWeight:"bold"}} id="arrow">&gt;</p>
                         </div>
                     </div>
-                    {/*<div className="closed_nav_dot_container">
-                        <div className="nav_dot" id="about_nav_dot">
-                            <p>o</p>
-                        </div>
-                        <div className="nav_dot" id="education_nav_dot">
-                            <p>o</p>
-                        </div>
-                        <div className="nav_dot" id="skills_nav_dot">
-                            <p>o</p>
-                        </div>
-                    </div>*/}
                 </div>
             </div>
 
@@ -96,6 +91,7 @@ class Navbar extends React.Component{
         )
     }
 
+    //handles the rotation of the closed navbar arrow
     animateArrow(direction){
         const arrow = document.getElementById("arrow");
 
@@ -105,6 +101,18 @@ class Navbar extends React.Component{
         else{
             arrow.classList.remove("rotate_arrow_in");
             arrow.classList.add("rotate_arrow_out");
+        }
+    }
+
+    dimScreen(direction){
+        const overlay = document.getElementById("resume");
+        if(direction === 'dim'){
+            overlay.classList.remove("undim_background")
+            overlay.classList.add("dim_background");
+        }
+        else{
+            overlay.classList.remove("dim_background");
+            overlay.classList.add("undim_background");
         }
     }
 
