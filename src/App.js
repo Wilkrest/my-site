@@ -3,6 +3,7 @@
   import About from "./About";
   import Education from "./Education";
   import Skills from "./Skills"
+  import Thanks from "./Thanks"
 
   import "./styles/styles.css"
 
@@ -21,14 +22,15 @@
 
     render(){
       return (
-        <div className="app" onScroll={this.handleScroll}>
+        <>
           <Navbar/>
             <div className="resume" id="resume">
               <About/>
               <Education/>
-              <Skills />
+              <Skills/>
+              <Thanks/>
             </div>
-        </div>
+        </>
       );
     }
   } 

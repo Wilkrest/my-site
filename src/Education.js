@@ -9,34 +9,31 @@ class Education extends React.Component{
                     <h1 className="education_title">Education</h1>
                 </div>
                 <div className="degree_info_container">
-                    <h2> Bachelor of Science in Computer Science</h2>
-                    <h3>University of North Texas, Denton, TX</h3>
-                    <h4>Graduated May 2020</h4>
+                    <h1>University of North Texas</h1>
+                    <h4> Bachelor's of Science in Computer Science<br></br>Graduated May 2020</h4>
+                </div>
+                <div className="relevant_class_intro_container">
+                    <p>
+                        Here's a couple of courses I took during my time at <b>UNT</b>, I felt these to be relevant
+                    </p>
                 </div>
                 <div className="relevant_classes_container">
+                    <h2>Relevant Courses</h2>
                     <div className="relevant_classes_column">
-                        <ul className="class_list">
-                            <li className="relevant_class">Secure E-Commerce</li>
-                            <li className="relevant_class">Software Engineering</li>
-                            <li className="relevant_class">Operating Systems</li>
-                            <li className="relevant_class">Assembly Language</li>
-                        </ul>
-                    </div>
-                    <div className="relevant_classes_column">
-                        <ul className="class_list">
-                            <li className="relevant_class">Fundamentals of Database Systems</li>
-                            <li className="relevant_class">Introduction of Computer Security</li>
-                            <li className="relevant_class">Data Structures and Algorithms</li>
-                            <li className="relevant_class">Linear Algebra</li>
-                        </ul>
-                    </div>
-                    <div className="relevant_classes_column">
-                        <ul className="class_list">
-                            <li className="relevant_class">Internet Programming</li>
-                            <li className="relevant_class">Computer Networks</li>
-                            <li className="relevant_class">Programming Languages</li>
-                            <li className="relevant_class">Technical Languages</li>
-                        </ul>
+                        <div className="class_list">
+                            <div className="relevant_class">Fundamentals of Database Systems</div>
+                            <div className="relevant_class">Introduction to Computer Security</div>
+                            <div className="relevant_class">Data Structures &amp; Algorithms</div>
+                            <div className="relevant_class">Programming Languages</div>
+                            <div className="relevant_class">Technical Writing I &amp; II</div>
+                            <div className="relevant_class">Internet Programming</div>
+                            <div className="relevant_class">Software Engineering</div>
+                            <div className="relevant_class">Secure E-Commerce</div>
+                            <div className="relevant_class">Assembly Language</div>
+                            <div className="relevant_class">Computer Networks</div>
+                            <div className="relevant_class">Operating Systems</div>
+                            <div className="relevant_class">Linear Algebra</div>
+                        </div>
                     </div>
                 </div>
             </div>

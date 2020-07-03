@@ -10,36 +10,41 @@ class About extends React.Component{
                     <h1 className="about_title">About Me</h1> 
                 </div>
                 <div className="goal_statement_container">
-                    <div className="goal_statement_backdrop">
-                        <p className="content" id="goal_statement">
-                        I'm an extremely eager graduate with a genuine drive for creating elegant and powerful web applications. I am
-                        consistent, dependable and a fast learner who is excited to master new technologies and further my
-                        career as a software engineer. 
-                        </p>
-                    </div>
-                    <div className="changing_text_backdrop">
-                        <div className="changing_text_container">
-                            <p className="changing_text">This text will change</p>
+                    <div>
+                        <p style={{fontSize:"large"}}>Hey!</p><br></br>
+                        I’m <b>Jose</b>, a budding developer excited in all facets of <b>web development. </b>
+                         I find the deepest satisfaction in solving problems and I love building beautiful things with eager people. 
+                        I’m also a recent graduate and I can’t wait to see what’s next!
                         </div>
-                    </div>
+                    
                     <div className="hobbies_intro_container">
-                    <p className=""> I'm from Houston, Texas and in in my free time I...</p>    
-                    </div>  
+                        <p> Here’s a  little more about me:<br></br><br></br> I’m from Houston, Texas and in my free time I...</p>    
+                        </div>  
                 </div>
+
                 <div className="bio_container">
-                   
-                    <div className="create_art_container">
-                        Create Art
+
+                    <div className="hobby_container" id="hobby_art">
+                        <div className="hobby_text_container" id="hobby_text_art">
+                            Try my hand at art
+                        </div>
+                        <div className="img_container" id="art_image"></div>
                     </div>
-                    <div className="img_container" id="art_image"></div>
-                    <div className="make_music_container">
-                        Make music
+
+                    <div className="hobby_container" id="hobby_nature">
+                        <div className="hobby_text_container">
+                            get lost in the woods
+                        </div>
+                        <div className="img_container" id="music_image"></div>
                     </div>
-                    <div className="img_container" id="music_image"></div>
-                    <div className="love_dogs_container">
-                        Love my dogs
+
+                    <div className="hobby_container" id="hobby_dogs">
+                        <div className="hobby_text_container">
+                            and love my dogs
+                        </div>
+                        <div className="img_container" id="dogs_image"></div>
+                        <p id="about_to_education" >Now here's a bit about my last four years:</p>
                     </div>
-                    <div className="img_container" id="dogs_image"></div>
                 </div>
                 
             </div>
