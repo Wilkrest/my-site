@@ -541,7 +541,6 @@ html, body{
 
 #dogs_image{
     background-image: url("../images/nickswen1.jpg");
-    //height: 100vh;
 }
 
 .name_container{
@@ -563,7 +562,7 @@ html, body{
     width: $pageWidth; 
     text-align: center;
 
-        //background-image: url("../images/moon-above-forest-during-night-time-1685543.jpg");
+    //background-image: url("../images/moon-above-forest-during-night-time-1685543.jpg");
     background-size: cover;
     background-attachment: fixed; 
     background-position: center;
@@ -622,7 +621,7 @@ html, body{
 .skills_title_container{    
     grid-column: 2 / 4;
     grid-row: 1 / 2;
-    font-size: x-large;
+    font-size: 2.5rem;
     place-self: center;
 }
 
@@ -662,4 +661,62 @@ html, body{
     min-height: 100vh;
     background-color: white;
     text-align: center;
+
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 26vh 30vh 20vh 24vh;
+
+}
+
+.the_end_title_container{
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    font-size: 3rem;
+    place-self: center;
+}
+
+.last_words_container{
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    place-self: center;
+}
+
+.contact_icons_container{
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    place-self: center;
+    font-size: 2rem;
+
+    .contact_icon{
+        margin: 1rem;
+        color: $colorFive;
+        &:hover{
+            color:$colorThree;
+        }
+    }
+}
+
+/*.resume_download_container{
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+
+    place-self: center;
+}
+
+.final_social_icons_container{
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+    place-self: center;
+    font-size: 2rem;
+
+    .nav_icon{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}*/
+
+.final_goodbye_container{
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+    place-self: center;
 }

@@ -15,18 +15,45 @@ class Thanks extends React.Component{
 
                 <div className="last_words_container">
                     <div className="last_words">
-                        I really appreciate your time, thanks for stopping by!<br></br>
-                        Here's a link to download a pdf version of this site, it pretty much sums it all up<br></br> thanks again!
+                        I really appreciate your time, thanks for stopping by!<br></br><br></br>
+                        Here's a link to download a pdf version of my resume, it pretty much sums it all up<br></br>
+                        Also some links to my Linkedin and such<br></br><br></br> Thanks again
                     </div>
                 </div>
 
-                <div className="resume_download_container">
-                    <a href="General2.pdf" className="resume_download" download="RamirezResume"> 
-                    <span style={{fontSize: "3rem"}}>
-                        <i class="fas fa-file-download"></i>
-                    </span>
+
+                <div className="contact_icons_container">
+                    <a href="General2.pdf" className="contact_icon" download="RamirezResume"> 
+                        <i className="fas fa-file-download"></i>
+                    </a> 
+                    <a href="mailto:jose.ramgarz@gmail.com" target="_blank" rel="noopener noreferrer" className="contact_icon" >
+                        <i className="far fa-envelope fa-1x"></i>
+                    </a>  
+                    <a href="https://www.linkedin.com/in/jose-ramirez-garza-9933a61a7/" target="_blank" rel="noopener noreferrer" className="contact_icon">
+                        <i className="fab fa-linkedin fa-1x"></i>
+                    </a>
+                    <a href="https://github.com/Wilkrest" target="_blank" rel="noopener noreferrer" className="contact_icon">
+                        <i className="fab fa-github fa-1x"></i>
                     </a>
                 </div>
+
+                {/*<div className="resume_download_container">
+                    <a href="General2.pdf" className="resume_download" download="RamirezResume"> 
+                        <i className="fas fa-file-download"></i>
+                    </a>    
+                </div>
+
+                <div className="final_social_icons_container">
+                    <a href="mailto:jose.ramgarz@gmail.com" target="_blank" rel="noopener noreferrer" className="nav_icon" >
+                        <i className="far fa-envelope fa-1x"></i>
+                    </a>  
+                    <a href="https://www.linkedin.com/in/jose-ramirez-garza-9933a61a7/" target="_blank" rel="noopener noreferrer" className="nav_icon">
+                        <i className="fab fa-linkedin fa-1x"></i>
+                    </a>
+                    <a href="https://github.com/Wilkrest" target="_blank" rel="noopener noreferrer" className="nav_icon">
+                        <i className="fab fa-github fa-1x"></i>
+                    </a>
+                </div>*/}
 
                 <div className="final_goodbye_container">
                     <div className="final_goodbye">
