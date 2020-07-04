@@ -8,7 +8,6 @@ $activedColor: rgb(255, 196, 0);
 $font: 'IBM Plex Sans', sans-serif;
 $closedNavWidth: 1.7%;
 $pageWidth: 100%;
-//100% - $closedNavWidth;
  
 @mixin link_slide_in($time){
     animation-name: nav_link_slide_in;
@@ -664,8 +663,7 @@ html, body{
 
     display: grid;
     grid-template-columns: 25% 50% 25%;
-    grid-template-rows: 26vh 30vh 20vh 24vh;
-
+    grid-template-rows: 26vh 30vh 20vh 24vh;    
 }
 
 .the_end_title_container{
@@ -696,27 +694,81 @@ html, body{
     }
 }
 
-/*.resume_download_container{
-    grid-column: 2 / 3;
-    grid-row: 3 / 4;
-
-    place-self: center;
+.final_profile_picture_container{
+    visibility: hidden;
 }
-
-.final_social_icons_container{
-    grid-column: 2 / 3;
-    grid-row: 4 / 5;
-    place-self: center;
-    font-size: 2rem;
-
-    .nav_icon{
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-}*/
 
 .final_goodbye_container{
     grid-column: 2 / 3;
     grid-row: 4 / 5;
     place-self: center;
 }
+
+
+
+@media screen and (max-width: 700px) { 
+
+    html, body{
+        min-width: 100vw;
+    }
+
+    #navbar{
+        display: none;
+    }
+
+    .closed_navbar {
+      display: none;
+    }
+
+    .about_title_container{
+        grid-column: 2 / 5;
+        place-self: center;
+    }
+
+    .education_title_container{
+        font-size: 2rem;
+    }
+
+    .relevant_classes_container{
+        align-self: center;
+    }
+
+    //general page styling for mobile devices
+    .about_page_container{
+        background-image: none;
+        background-color: whitesmoke;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: auto + 5vh;
+    }
+
+    .education_page_container{
+        display: flex;
+        flex-direction: column;
+        min-height: 180vh;
+        justify-content: space-evenly;
+    }
+
+    .skills_page_container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 200vh;
+    }
+
+    .thanks_page_container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .final_profile_picture_container{
+        visibility: visible;
+    }
+
+    #final_profile_picture{
+        max-width: 50%;
+        border-radius: 50%;;
+    }
+  }

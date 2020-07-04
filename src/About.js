@@ -13,7 +13,7 @@ class About extends React.Component{
                     <div>
                         <p style={{fontSize:"large"}}>Hey!</p><br></br>
                         I’m <b>Jose</b>, a budding developer excited in all facets of <b>web development. </b>
-                         I find the deepest satisfaction in solving problems and I love building beautiful things with eager people. 
+                         I find the deepest satisfaction in solving complicated problems and I love building beautiful things with eager people. 
                         I’m also a recent graduate and I can’t wait to see what’s next!
                         </div>
                     

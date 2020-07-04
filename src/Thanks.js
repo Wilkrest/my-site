@@ -21,7 +21,6 @@ class Thanks extends React.Component{
                     </div>
                 </div>
 
-
                 <div className="contact_icons_container">
                     <a href="General2.pdf" className="contact_icon" download="RamirezResume"> 
                         <i className="fas fa-file-download"></i>
@@ -37,23 +36,9 @@ class Thanks extends React.Component{
                     </a>
                 </div>
 
-                {/*<div className="resume_download_container">
-                    <a href="General2.pdf" className="resume_download" download="RamirezResume"> 
-                        <i className="fas fa-file-download"></i>
-                    </a>    
+                <div className="final_profile_picture_container">
+                    <img id="final_profile_picture" src="/profile_image.jpg" alt="profile circle"/>   
                 </div>
-
-                <div className="final_social_icons_container">
-                    <a href="mailto:jose.ramgarz@gmail.com" target="_blank" rel="noopener noreferrer" className="nav_icon" >
-                        <i className="far fa-envelope fa-1x"></i>
-                    </a>  
-                    <a href="https://www.linkedin.com/in/jose-ramirez-garza-9933a61a7/" target="_blank" rel="noopener noreferrer" className="nav_icon">
-                        <i className="fab fa-linkedin fa-1x"></i>
-                    </a>
-                    <a href="https://github.com/Wilkrest" target="_blank" rel="noopener noreferrer" className="nav_icon">
-                        <i className="fab fa-github fa-1x"></i>
-                    </a>
-                </div>*/}
 
                 <div className="final_goodbye_container">
                     <div className="final_goodbye">

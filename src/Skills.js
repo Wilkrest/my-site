@@ -8,7 +8,7 @@ class Skills extends React.Component{
                     <h1 className="skills_title">Skills</h1>
                 </div>
                 <div className="skills_intro_container">
-                    <p>Here are some of the skills I've picked up<br></br> Listed in order from most proficient to least</p>
+                    <p>Here are some skills I've picked up<br></br> Listed in order from most proficient to least</p>
                 </div>
 
                 <div className="languages_title">

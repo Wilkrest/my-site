@@ -14,7 +14,7 @@ class Education extends React.Component{
                 </div>
                 <div className="relevant_class_intro_container">
                     <p>
-                        Here's a couple of courses I took during my time at <b>UNT</b>, I felt these to be relevant
+                        Here's a couple of courses I took during my time at <b>UNT</b>
                     </p>
                 </div>
                 <div className="relevant_classes_container">
