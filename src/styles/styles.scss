@@ -695,7 +695,7 @@ html, body{
 }
 
 .final_profile_picture_container{
-    visibility: hidden;
+    display: none;
 }
 
 .final_goodbye_container{
@@ -703,8 +703,6 @@ html, body{
     grid-row: 4 / 5;
     place-self: center;
 }
-
-
 
 @media screen and (max-width: 700px) { 
 
@@ -761,6 +759,10 @@ html, body{
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        .final_profile_picture_container{
+            display: flex;
+            justify-content: center;
+        }
     }
 
     .final_profile_picture_container{

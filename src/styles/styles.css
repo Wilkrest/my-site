@@ -1018,7 +1018,7 @@ html ::-webkit-scrollbar-thumb, body ::-webkit-scrollbar-thumb {
 }
 
 .final_profile_picture_container {
-  visibility: hidden;
+  display: none;
 }
 
 .final_goodbye_container {
@@ -1107,6 +1107,14 @@ html ::-webkit-scrollbar-thumb, body ::-webkit-scrollbar-thumb {
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
+  }
+  .thanks_page_container .final_profile_picture_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .final_profile_picture_container {
     visibility: visible;

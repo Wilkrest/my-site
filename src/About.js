@@ -13,8 +13,10 @@ class About extends React.Component{
                     <div>
                         <p style={{fontSize:"large"}}>Hey!</p><br></br>
                         I’m <b>Jose</b>, a budding developer excited in all facets of <b>web development. </b>
-                         I find the deepest satisfaction in solving complicated problems and I love building beautiful things with eager people. 
-                        I’m also a recent graduate and I can’t wait to see what’s next!
+                        <p>Growing up, I always envisioned myself as a painter. An artist unendingly devoted to spilling painted passions on canvas,and then I wrote my first “Hello world".
+                        Computers replaced canvases and code became my paintbrush, I’ve never looked back. 
+                        I’m completely captivated by the world of software development, it’s a field that provides continuous opportunities to face challenges and sharpen my skills as a developer and as a problem solver.
+                         I’m beyond excited to pursue my passion and craft software I can be proud of.</p>
                         </div>
                     
                     <div className="hobbies_intro_container">
